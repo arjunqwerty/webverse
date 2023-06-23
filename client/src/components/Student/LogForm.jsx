@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 // import Navbar from "./Navbar";
 const RegForm = () => {
+	const navigate = useNavigate();
 	const [regNo, setRegNo] = useState("");
 	const [pass, setPass] = useState("");
+	const [token,setToken]=useState("");
 	function postData() {
 		fetch("http://localhost:8000/api/v1/student/auth/login", {
 			method: "POST",
@@ -16,18 +20,24 @@ const RegForm = () => {
 		})
 			.then(function (response) {
 				return response.json();
+
 			})
 			.then(function (data) {
 				alert(data + " submitted successfully");
-				console.log(data);
+				console.log(data.token);
+				window.localStorage.setItem("token", data.token)
 			})
 			.catch((error) => alert("Error:", error));
 	}
-
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
+		navigate('/student/info');
+
+
+
 	};
+
 
 	return (
 		<>
