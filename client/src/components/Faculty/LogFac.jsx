@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-
 // import Navbar from "./Navbar";
-const RegForm = () => {
-	const navigate = useNavigate();
-	const [regNo, setRegNo] = useState("");
+const LogFac = () => {
+	const [empId, setEmpID] = useState("");
 	const [pass, setPass] = useState("");
-	const [token,setToken]=useState("");
 	function postData() {
-		fetch("http://localhost:8000/api/v1/student/auth/login", {
+		fetch("http://localhost:8000/api/v1/faculty/auth/login", {
 			method: "POST",
 			body: JSON.stringify({
-				regNo: regNo,
+				empId: empId,
 				password: pass,
 			}),
 			headers: {
@@ -20,24 +16,18 @@ const RegForm = () => {
 		})
 			.then(function (response) {
 				return response.json();
-
 			})
 			.then(function (data) {
 				alert(data + " submitted successfully");
-				console.log(data.token);
-				window.localStorage.setItem("token", data.token)
+				console.log(data);
 			})
 			.catch((error) => alert("Error:", error));
 	}
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
-		navigate('/student/info');
-
-
-
 	};
-
 
 	return (
 		<>
@@ -50,16 +40,16 @@ const RegForm = () => {
 						<div className="mb-4">
 							<label
 								className="block text-white text-sm font-bold mb-2"
-								htmlFor="regNo">
-								Register Number
+								htmlFor="empId">
+								Employee ID
 							</label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-								id="regNo"
+								id="empId"
 								type="text"
-								placeholder="21BCE1001"
+								placeholder="12347"
 								onChange={(e) => {
-									setRegNo(e.target.value);
+									setEmpID(e.target.value);
 								}}
 							/>
 						</div>
@@ -73,7 +63,7 @@ const RegForm = () => {
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="pass"
 								type="password"
-								placeholder="Ssssshhhhh"
+								placeholder="abcdefgh"
 								onChange={(e) => {
 									setPass(e.target.value);
 								}}
@@ -96,4 +86,4 @@ const RegForm = () => {
 	);
 };
 
-export default RegForm;
+export default LogFac;

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-// import Navbar from "./Navbar";
-const RegForm = () => {
-	const [name, setName] = useState("");
+import {useEffect,useState} from 'react'
+import axios from 'axios';
+
+function Register() {
+    const [name, setName] = useState("");
 	const [regNo, setRegNo] = useState("");
 	const [blockNo, setBlockNo] = useState("");
 	const [pass, setPass] = useState("");
 	const [roomNo, setRoomNo] = useState("");
+    const [value,setvalue]=useState([])
 	function postData() {
 		fetch("http://localhost:8000/api/v1/student/auth/register", {
 			method: "POST",
@@ -25,7 +27,7 @@ const RegForm = () => {
 			})
 			.then(function (data) {
 				alert(data + " submitted successfully");
-				console.log(data);
+				setvalue(data);
 			})
 			.catch((error) => alert("Error:", error));
 	}
@@ -135,9 +137,11 @@ const RegForm = () => {
 						©2023 Android Club. All rights reserved.
 					</p>
 				</div>
+            
 			</div>
 		</>
 	);
 };
 
-export default RegForm;
+
+export default Register
