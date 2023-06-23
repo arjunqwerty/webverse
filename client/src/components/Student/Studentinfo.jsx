@@ -28,23 +28,41 @@ function Studentinfo({ id }) {
         })
         .catch((error) => console.error(error));
     };
+      const sbme=(e)=>{
+        e.preventDefault();
 
-    console.log(data);
-    return (
-        <div>
-            <div className="buus">
-                <button className="button3" onClick={function() {navigate('/student/auth/studcomplain')}}>Post Complaint</button>
-                <button className="button3" onClick={function() {navigate('/student/auth/my-warden')}}>Get Warden</button>
-                <button className="button3" onClick={function() {navigate('/student/auth/leave')}}>Leave Request</button>
-            </div>
-            <div className="stinfo">
-                <h1>{name}</h1>
-                <h2>{regno}</h2>
-                <h2>Hostel block {block}</h2>
-                <h2>Mess type: {mess}</h2>
-            </div>
-        </div>
-    );
+        navigate('/student/info/warden')
+
+      }
+      const sbme1=(e)=>{
+        e.preventDefault();
+        navigate('/student/info/event')
+      }
+    console.log(data)
+  return (
+    <div>
+    <div className='buus'>
+    <button className='button3'>Post Complaint</button>
+    
+    <button className='button3' onClick={sbme}>Get Warden</button>
+    <button className='button3' >Leave Request</button>
+    <button className='button3' onClick={sbme1}>View Events</button>
+
+
+    </div>
+       <div className='stinfo'>
+    <h1>{name}</h1>
+    <h2>{regno}</h2>
+    <h2>Hostel block {block}</h2>
+    <h2>Mess type: {mess}</h2>
+
+
+
+    </div>
+
+    </div>
+
+  )
 }
 
 export default Studentinfo;
