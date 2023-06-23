@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 const RegForm = () => {
 	const [name, setName] = useState("");
 	const [regNo, setRegNo] = useState("");
@@ -9,6 +9,7 @@ const RegForm = () => {
 	function postData() {
 		fetch("http://localhost:8000/api/v1/student/auth/register", {
 			method: "POST",
+			headers: getHeaders(),
 			body: JSON.stringify({
 				name: name,
 				regNo: regNo,
@@ -17,6 +18,7 @@ const RegForm = () => {
 				roomNo: roomNo,
 			}),
 			headers: {
+				Authorization: `Bearer jfhdjdsnbguilarrgerugbdgbljilK`,
 				"Content-type": "application/json; charset=UTF-8",
 			},
 		})
@@ -37,7 +39,7 @@ const RegForm = () => {
 
 	return (
 		<>
-			<Navbar></Navbar>
+			{/* <Navbar></Navbar> */}
 			<div className="flex justify-center items-center">
 				<div className="w-full max-w-xs">
 					<form
