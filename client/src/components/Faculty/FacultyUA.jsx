@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react'
 
 function FacultyUA({id}) {
-    const token = localStorage.getItem("token")
+    const tokennew = localStorage.getItem("token")
 
     
     const [data, setData] = useState([]);
@@ -11,18 +11,17 @@ function FacultyUA({id}) {
     }, []);
   
     const fetchData = async () => {
-      await fetch('http://localhost:8000/api/v1/faculty/event/get-all-unapproved', {
+      await fetch('http://localhost:8000/api/v1/faculty/course/get-all-courses', {
         headers: {
-          'Authorization': `Bearer ${token} `,
+          'Authorization': `Bearer ${tokennew} `,
         }
       })
         .then(response => response.json())
-        .then(data => setData(data))
+        .then(data => setData(data['message']))
         .catch(error => console.error(error));
     };
-    console.log(data['data'])
   return (
-    <div >HILJ
+    <div >{data}
     </div>
   )
 }
