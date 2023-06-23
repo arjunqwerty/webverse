@@ -23,7 +23,7 @@ const RegFac = () => {
 				return response.json();
 			})
 			.then(function (data) {
-				alert(data + " submitted successfully");
+				//alert(data + " submitted successfully");
 				console.log(data);
 			})
 			.catch((error) => alert("Error:", error));
@@ -83,7 +83,7 @@ const RegFac = () => {
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="pass"
-								type="text"
+								type="password"
 								placeholder="abcdefgh"
 								onChange={(e) => {
 									setPass(e.target.value);

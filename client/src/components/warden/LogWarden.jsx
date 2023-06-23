@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 // import Navbar from "./Navbar";
-const LogStud = () => {
-	const navigate = useNavigate();
-	const [regNo, setRegNo] = useState("");
+const LogWarden = () => {
+	const [block, setBlock] = useState("");
 	const [pass, setPass] = useState("");
 	function postData() {
-		fetch("http://localhost:8000/api/v1/student/auth/login", {
+		fetch("http://localhost:8000/api/v1/warden/auth/login", {
 			method: "POST",
 			body: JSON.stringify({
-				regNo: regNo,
+				block: block,
 				password: pass,
 			}),
 			headers: {
@@ -20,7 +18,8 @@ const LogStud = () => {
 				return response.json();
 			})
 			.then(function (data) {
-				window.localStorage.setItem("token",data['token'])
+				alert(data + " submitted successfully");
+				console.log(data);
 			})
 			.catch((error) => alert("Error:", error));
 	}
@@ -28,9 +27,6 @@ const LogStud = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
-		navigate('/student/info');
-
-
 	};
 
 	return (
@@ -44,14 +40,14 @@ const LogStud = () => {
 						<div className="mb-4">
 							<label
 								className="block text-white text-sm font-bold mb-2"
-								htmlFor="regNo">
-								Register Number
+								htmlFor="block">
+								Block Number
 							</label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-								id="regNo"
+								id="block"
 								type="text"
-								placeholder="21BCE1001"
+								placeholder="A"
 								onChange={(e) => {
 									setRegNo(e.target.value);
 								}}
@@ -90,4 +86,4 @@ const LogStud = () => {
 	);
 };
 
-export default LogStud;
+export default LogWarden;

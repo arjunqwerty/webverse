@@ -4,7 +4,32 @@
   padding: 2rem;
   text-align: center;
 }
+.stinfo{
+  background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  text-align: left;
+  padding: 80px;
+}
+.button3 {
+  background-color: #505050	; 
+  color: black; 
+  border: 2px solid #f44336;
+  padding: 10px;
+  margin: 10px;
+}
 
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+.buus{
+  padding-bottom: 50px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
