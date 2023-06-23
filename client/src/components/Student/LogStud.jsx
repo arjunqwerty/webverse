@@ -20,7 +20,7 @@ const LogStud = () => {
 				return response.json();
 			})
 			.then(function (data) {
-				alert(data + " submitted successfully");
+				window.localStorage.setItem("token",data['token'])
 			})
 			.catch((error) => alert("Error:", error));
 	}
@@ -29,6 +29,7 @@ const LogStud = () => {
 		e.preventDefault();
 		postData();
 		navigate('/student/info');
+
 
 	};
 

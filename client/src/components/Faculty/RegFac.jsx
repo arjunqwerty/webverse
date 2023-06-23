@@ -23,7 +23,7 @@ const RegFac = () => {
 				return response.json();
 			})
 			.then(function (data) {
-				alert(data + " submitted successfully");
+				//alert(data + " submitted successfully");
 				console.log(data);
 			})
 			.catch((error) => alert("Error:", error));
