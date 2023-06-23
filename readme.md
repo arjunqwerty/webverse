@@ -11,5 +11,6 @@ APIs called:
 './components/Faculty/RegFac'; = /api/v1/faculty/auth/register POST
 './components/Faculty/LogFac'; = /api/v1/faculty/auth/login POST
 './components/Faculty/FacultyUA'; = /api/v1/faculty/event/get-all-unapproved GET
+'./components/Faculty/facappeve'; = /api/v1/faculty/event/approve-event POST
 './components/Faculty/FacultyAllCourse'; = /api/v1/faculty/course/get-all-course GET
 './components/warden/LogWarden'; = /api/v1/warden/login POST
