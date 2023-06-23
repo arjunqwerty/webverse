@@ -25,7 +25,7 @@ function App() {
         <Route path="/faculty/auth/register" element={<RegFac />}/>
         <Route path="/faculty/auth/login" element={<LogFac />}/>
         <Route path="/faculty/auth/facultyua" element={<FacultyUA />}/>
-        <Route path="faculty/auth/faceappeve" element={<Faceappeve />}/>
+        <Route path="/faculty/auth/faceappeve" element={<Faceappeve />}/>
         <Route path="/student/info" element={<Studentinfo/>}/> 
         <Route path="/student/leave" element={<LeavePost/>}/> 
         <Route path="/warden/auth/login" element={<LogWarden />}/>
