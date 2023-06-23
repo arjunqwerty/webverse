@@ -5,6 +5,7 @@ import RegStud from './components/Student/RegStud';
 import LogStud from './components/Student/LogStud';
 import RegFac from './components/Faculty/Regfac';
 import LogFac from './components/Faculty/LogFac';
+import LogWarden from './components/warden/LogWarden';
 import { Route, Routes } from "react-router-dom";
 import './App.css'
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/student/auth/login" element={<LogStud />}/>
         <Route path="/faculty/auth/register" element={<RegFac />}/>
         <Route path="/faculty/auth/login" element={<LogFac />}/>
+        <Route path="/warden/auth/login" element={<LogWarden />}/>
     </Routes>
   )
 }
