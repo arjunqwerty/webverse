@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
+
 import RegStud from './components/Student/RegStud';
 import LogStud from './components/Student/LogStud';
+import Studentinfo from './components/Student/Studentinfo';
+import LeavePost from './components/Student/LeavePost';
+import LeaveGet from './components/Student/LeaveGet';
+
 import RegFac from './components/Faculty/RegFac';
 import LogFac from './components/Faculty/LogFac';
+
 import LogWarden from './components/warden/LogWarden';
-import LeavePost from './components/Student/LeavePost';
 import { Route, Routes } from "react-router-dom";
 import './App.css'
-import Studentinfo from './components/Student/Studentinfo';
 
 function App() {
 
@@ -18,10 +22,11 @@ function App() {
         {/* <Route path="/" element={<RegForm />}/>/ */}
         <Route path="/student/auth/register" element={<RegStud />}/>
         <Route path="/student/auth/login" element={<LogStud />}/>
+        <Route path="/student/auth/info" element={<Studentinfo/>}/> 
+        <Route path="/student/auth/leave" element={<LeavePost/>}/> 
+        <Route path="/student/auth/leave/see" element={<LeaveGet/>}/> 
         <Route path="/faculty/auth/register" element={<RegFac />}/>
         <Route path="/faculty/auth/login" element={<LogFac />}/>
-        <Route path="/student/info" element={<Studentinfo/>}/> 
-        <Route path="/student/leave" element={<LeavePost/>}/> 
         <Route path="/warden/auth/login" element={<LogWarden />}/>
     </Routes>
   )
