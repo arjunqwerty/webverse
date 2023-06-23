@@ -34,7 +34,7 @@ const LogFac = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
-		navigate('/faculty/auth/facultyua');
+		navigate('/faculty/auth/facultyallcour');
 	};
 
 	return (

@@ -1,43 +1,33 @@
-import {useState,useEffect} from 'react'
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
-function Studentinfo({id}) {
-    const token = localStorage.getItem("token")
-    const[name,setname]=useState("");
-    const[regno,setregno]=useState("");
-    const[block,setblock]=useState("");
-    const[mess,setmess]=useState("");
-
-  	const navigate = useNavigate();
-
-    
+function Studentinfo({ id }) {
+    const navigate = useNavigate();
+    const token = localStorage.getItem("token");
+    const [name, setname] = useState("");
+    const [regno, setregno] = useState("");
+    const [block, setblock] = useState("");
+    const [mess, setmess] = useState("");
     const [data, setData] = useState([]);
-
     useEffect(() => {
-      fetchData();
-
-
+        fetchData();
     }, []);
-    
-  
-    const fetchData = async() => {
-      await fetch('http://localhost:8000/api/v1/student/me/', {
-        headers: {
-          'Authorization': `Bearer ${token} `,
-        }
-      })
-        .then(response => response.json())
-        .then(data =>
-          { setData(data)
-            setblock(data['data']['block'])
-            setmess(data['data']['messType'])
-            setname(data['data']['name'])
-            setregno(data['data']['regNo'])
-              }
-        
-        )
-        .catch(error => console.error(error));
-            };
+    const fetchData = async () => {
+        await fetch("http://localhost:8000/api/v1/student/me/", {
+            headers: {
+                Authorization: `Bearer ${token} `,
+            },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            setData(data);
+            setblock(data["data"]["block"]);
+            setmess(data["data"]["messType"]);
+            setname(data["data"]["name"]);
+            setregno(data["data"]["regNo"]);
+        })
+        .catch((error) => console.error(error));
+    };
       const sbme=(e)=>{
         e.preventDefault();
 
@@ -75,4 +65,4 @@ function Studentinfo({id}) {
   )
 }
 
-export default Studentinfo
+export default Studentinfo;

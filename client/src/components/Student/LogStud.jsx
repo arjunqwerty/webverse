@@ -18,21 +18,20 @@ const LogStud = () => {
 				"Content-type": "application/json; charset=UTF-8",
 			},
 		})
-			.then(function (response) {
-				return response.json();
-			})
-			.then(function (data) {
-				window.localStorage.setItem("token",data['token'])
-			})
-			.catch((error) => alert("Error:", error));
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            window.localStorage.setItem("token",data['token']);
+        })
+        .catch((error) => alert("Error:", error));
 	}
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
-		navigate('/student/info');
-
-
+		navigate('/student/auth/info');
 	};
 
 	return (
