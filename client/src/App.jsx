@@ -7,7 +7,7 @@ import RegFac from './components/Faculty/RegFac';
 import LogFac from './components/Faculty/LogFac';
 import { Route, Routes } from "react-router-dom";
 import './App.css'
-import Studentinfo from './components/Studentinfo';
+import Studentinfo from './components/Student/Studentinfo';
 
 function App() {
 

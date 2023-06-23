@@ -1,11 +1,9 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
 
 function Studentinfo({id}) {
     const token = localStorage.getItem("token")
 
-    if(!token) {
-        return <div>No Token Invalid Route</div>
-    }
+    
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -13,17 +11,19 @@ function Studentinfo({id}) {
     }, []);
   
     const fetchData = () => {
-      fetch('https://api.example.com/data', {
+      fetch('http://localhost:8000/api/v1/student/me/', {
         headers: {
-          'Authorization': 'Bearer <TOKEN>',
+          'Authorization': `Bearer ${token} `,
         }
       })
         .then(response => response.json())
         .then(data => setData(data))
         .catch(error => console.error(error));
     };
+    console.log(data['data'])
   return (
-    <div>{token}</div>
+    <div >HILJ
+    </div>
   )
 }
 
