@@ -28,25 +28,30 @@ function Studentinfo({ id }) {
         })
         .catch((error) => console.error(error));
     };
-      const sbme=(e)=>{
+    const sbme1=(e)=>{
         e.preventDefault();
-
+        navigate('/student/auth/studcomplain')
+    }
+    const sbme2=(e)=>{
+        e.preventDefault();
         navigate('/student/info/warden')
-
-      }
-      const sbme1=(e)=>{
+    }
+    const sbme3=(e)=>{
+        e.preventDefault();
+        navigate('/student/auth/leave')
+    }
+    const sbme4=(e)=>{
         e.preventDefault();
         navigate('/student/info/event')
-      }
+    }
     console.log(data)
   return (
     <div>
     <div className='buus'>
-    <button className='button3'>Post Complaint</button>
-    
-    <button className='button3' onClick={sbme}>Get Warden</button>
-    <button className='button3' >Leave Request</button>
-    <button className='button3' onClick={sbme1}>View Events</button>
+    <button className='button3' onClick={sbme1}>Post Complaint</button>
+    <button className='button3' onClick={sbme2}>Get Warden</button>
+    <button className='button3' onClick={sbme3}>Leave Request</button>
+    <button className='button3' onClick={sbme4}>View Events</button>
 
 
     </div>
