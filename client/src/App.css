@@ -4,27 +4,148 @@
   padding: 2rem;
   text-align: center;
 }
+.main{
+  color:#ffa500;
+}
+.main1{
+  color:#ffa500;
+  padding: 50px;
+}
+.buts{
+  padding: 100px;
+  margin: 20px;
+}
+.but8{
+  padding: 30px;
+}
+.but1{
+  padding: 10px;
+  height: 100px;
+  width: 200px;
+}
+.but2{
+  padding: 10px;
+  margin: 30px;
+  height: 100px;
+  width: 200px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  background: #000;
+}
+button {
+  border: none;
+  padding: 20px 40px;
+  font-size: 44px;
+  position: relative;
+  background: transparent;
+  color: #ffa500;
+  text-transform: uppercase;
+  border: 3px solid #ffa500;
+  cursor: pointer;
+  transition: all 0.7s;
+  overflow: hidden;
+  border-radius: 100px;
+}
+
+button:hover {
+  color: #000;
+  background-color: #ffa500;
+}
+span {
+  transition: all 0.7s;
+  z-index: -1;
+}
+
+button .first {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  background: #ffa500;
+}
+
+button:hover .first {
+  top: 0;
+  right: 0;
+}
+button .second {
+  content: "";
+  position: absolute;
+  left: 25%;
+  top: -100%;
+  height: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button:hover .second {
+  top: 0;
+  left: 50%;
+}
+
+button .third {
+  content: "";
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  top: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button:hover .third {
+  top: 0;
+  left: 25%;
+}
+
+button .fourth {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  height: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button:hover .fourth {
+  top: 0;
+  left: 0;
+}
 .stinfo{
-  background: rgba( 255, 255, 255, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba( 245, 166, 35, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   text-align: left;
   padding: 80px;
 }
 .button3 {
-  background-color: #505050	; 
+  background-color: #ffa500	; 
   color: black; 
-  border: 2px solid #f44336;
+  border: 2px solid #ffa500;
   padding: 10px;
   margin: 10px;
 }
 
 
 .button3:hover {
-  background-color: #f44336;
+  background-color: #ffa500;
   color: white;
 }
 .buus{

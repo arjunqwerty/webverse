@@ -26,7 +26,7 @@ function Register() {
 				return response.json();
 			})
 			.then(function (data) {
-				alert(data + " submitted successfully");
+				//alert(data + " submitted successfully");
 				setvalue(data);
 			})
 			.catch((error) => alert("Error:", error));
@@ -45,6 +45,8 @@ function Register() {
 					<form
 						className="bg-blue-900 shadow-md rounded px-8 pt-6 pb-8 mb-4"
 						onSubmit={submitHandler}>
+									<h1 className='main'> Register to VIT hostel managment</h1>
+
 						<div className="mb-4">
 							<label
 								className="block text-white text-sm font-bold mb-2"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import Navbar from "./Navbar";
 const LeavePost = () => {
+    const token = localStorage.getItem("token");
 	const [type, setType] = useState("");
 	const [date, setDate] = useState("");
     const [time, setTime] = useState("");
@@ -15,6 +16,7 @@ const LeavePost = () => {
                 leaveDuration:dur,
 			}),
 			headers: {
+                Authorization: `Bearer ${token} `,
                 "Content-type": "application/json; charset=UTF-8",
 			},
 		})
@@ -22,7 +24,7 @@ const LeavePost = () => {
             return response.json();
         })
         .then(function (data) {
-            alert(data + " submitted successfully");
+            // alert(data + " submitted successfully");
             console.log(data);
         })
         .catch((error) => alert("Error:", error));
@@ -30,10 +32,6 @@ const LeavePost = () => {
     
 	const submitHandler = (e) => {
         e.preventDefault();
-        console.log(typeof(type));
-        console.log(typeof(date));
-        console.log(typeof(time));
-        console.log(typeof(dur));
 		postData();
 	};
 

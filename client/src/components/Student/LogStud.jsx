@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+
 // import Navbar from "./Navbar";
 const LogStud = () => {
+
 	const navigate = useNavigate();
 	const [regNo, setRegNo] = useState("");
 	const [pass, setPass] = useState("");
@@ -16,27 +18,27 @@ const LogStud = () => {
 				"Content-type": "application/json; charset=UTF-8",
 			},
 		})
-			.then(function (response) {
-				return response.json();
-			})
-			.then(function (data) {
-				window.localStorage.setItem("token",data['token'])
-			})
-			.catch((error) => alert("Error:", error));
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            window.localStorage.setItem("token",data['token']);
+        })
+        .catch((error) => alert("Error:", error));
 	}
 
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
-		navigate('/student/info');
-
-
+		navigate('/student/auth/info');
 	};
 
 	return (
 		<>
 			{/* <Navbar></Navbar> */}
 			<div className="flex justify-center items-center">
+			<h1 className="main1"> Login on VIT Management system</h1>
 				<div className="w-full max-w-xs">
 					<form
 						className="bg-blue-900 shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -45,8 +47,7 @@ const LogStud = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="regNo">
-								Register Number
-							</label>
+								Register Number </label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="regNo"
@@ -61,8 +62,7 @@ const LogStud = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="pass">
-								Password
-							</label>
+								Password </label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="pass"
@@ -73,10 +73,10 @@ const LogStud = () => {
 								}}
 							/>
 						</div>
-						<div className="flex items-center justify-between">
-							<button
+						<div className="but8">
+							<button 
 								className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-								type="submit">
+								type="submit" >
 								Submit
 							</button>
 						</div>
