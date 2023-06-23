@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 // import Navbar from "./Navbar";
 const LogStud = () => {
+	const navigate = useNavigate();
 	const [regNo, setRegNo] = useState("");
 	const [pass, setPass] = useState("");
 	function postData() {
@@ -27,6 +29,8 @@ const LogStud = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
+		navigate('/student/info');
+
 	};
 
 	return (
