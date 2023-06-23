@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import RegStud from './components/Student/RegStud';
 import LogStud from './components/Student/LogStud';
+import Studevent from './components/Student/Studevent';
 import RegFac from './components/Faculty/RegFac';
 import LogFac from './components/Faculty/LogFac';
 import LogWarden from './components/warden/LogWarden';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/student/auth/register" element={<RegStud />}/>
         <Route path="/student/auth/login" element={<LogStud />}/>
         <Route path="/student/auth/studcomplain" element={<StudComplain />}/>
+        <Route path="/student/auth/studevent" element={<Studevent />}/>
         <Route path="/faculty/auth/register" element={<RegFac />}/>
         <Route path="/faculty/auth/login" element={<LogFac />}/>
         <Route path="/faculty/auth/facultyua" element={<FacultyUA />}/>
