@@ -8,9 +8,9 @@ APIs called:
 './components/Student/LeaveGet'; = /api/v1/student/leave GET
 './components/Student/StudComplain'; = /api/v1/student/student/complaint POST
 './components/Student/Studevent'; = /api/v1/student/event POST
-'./components/Faculty/RegFac'; = /api/v1/faculty/auth/register
-'./components/Faculty/LogFac'; = /api/v1/faculty/auth/login
-'./components/Faculty/FacultyUA'; = /api/v1/faculty/event/get-all-unapproved
-'./components/Faculty/facappeve'; = /api/v1/faculty/event/approve-event
-'./components/Faculty/FacultyAllCourse'; = /api/v1/faculty/course/get-all-course
-'./components/warden/LogWarden'; = /api/v1/warden/login
+'./components/Faculty/RegFac'; = /api/v1/faculty/auth/register POST
+'./components/Faculty/LogFac'; = /api/v1/faculty/auth/login POST
+'./components/Faculty/FacultyUA'; = /api/v1/faculty/event/get-all-unapproved GET
+'./components/Faculty/facappeve'; = /api/v1/faculty/event/approve-event POST
+'./components/Faculty/FacultyAllCourse'; = /api/v1/faculty/course/get-all-course GET
+'./components/warden/LogWarden'; = /api/v1/warden/login POST
