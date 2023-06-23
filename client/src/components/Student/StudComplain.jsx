@@ -1,22 +1,20 @@
-import {useEffect,useState} from 'react'
-import axios from 'axios';
-
-function Register() {
-    const [name, setName] = useState("");
-	const [regNo, setRegNo] = useState("");
-	const [blockNo, setBlockNo] = useState("");
-	const [pass, setPass] = useState("");
-	const [roomNo, setRoomNo] = useState("");
-    const [value,setvalue]=useState([])
+import React, { useState } from "react";
+//import { useNavigate } from 'react-router-dom';
+// import Navbar from "./Navbar";
+const StudComplain = () => {
+	// const navigate = useNavigate();
+	const [ComplaintType, setCT] = useState("");
+	const [ComplaintDate, setCD] = useState("");
+    const [ComplaintDesc, setCDesc] = useState("");
+    const [ComplaintSeverity, setCS] = useState("");
 	function postData() {
-		fetch("http://localhost:8000/api/v1/student/auth/register", {
+		fetch("http://localhost:8000/api/v1/student/complaint", {
 			method: "POST",
 			body: JSON.stringify({
-				name: name,
-				regNo: regNo,
-				block: blockNo,
-				password: pass,
-				roomNo: roomNo,
+				complaintType: ComplaintType ,
+                complaintDate: ComplaintDate,
+                complaintDescription: ComplaintDesc,
+                complaintSeverity:ComplaintSeverity,
 			}),
 			headers: {
 				"Content-type": "application/json; charset=UTF-8",
@@ -26,8 +24,7 @@ function Register() {
 				return response.json();
 			})
 			.then(function (data) {
-				//alert(data + " submitted successfully");
-				setvalue(data);
+				alert(data + " submitted successfully");
 			})
 			.catch((error) => alert("Error:", error));
 	}
@@ -35,6 +32,8 @@ function Register() {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
+		//navigate('/student/info');
+
 	};
 
 	return (
@@ -45,85 +44,64 @@ function Register() {
 					<form
 						className="bg-blue-900 shadow-md rounded px-8 pt-6 pb-8 mb-4"
 						onSubmit={submitHandler}>
-									<h1 className='main'> Register to VIT hostel managment</h1>
-
 						<div className="mb-4">
 							<label
 								className="block text-white text-sm font-bold mb-2"
-								htmlFor="Name">
-								Name
+								htmlFor="complaint_type">
+								Type of complaint
 							</label>
 							<input
-								className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
-								id="Name"
+								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+								id="complaint_type"
 								type="text"
-								placeholder="Name"
 								onChange={(e) => {
-									setName(e.target.value);
+									setCT(e.target.value);
 								}}
 							/>
 						</div>
 						<div className="mb-6">
 							<label
 								className="block text-white text-sm font-bold mb-2"
-								htmlFor="regNo">
-								Register Number
+								htmlFor="complaint_date">
+								Complaint Date
 							</label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-								id="regNo"
-								type="text"
-								placeholder="21BCE1001"
+								id="complaint_date"
+								type="date"
+								placeholder="yy/mm/dd"
 								onChange={(e) => {
-									setRegNo(e.target.value);
+									setCD(e.target.value);
 								}}
 							/>
 						</div>
-						<div className="mb-6">
+                        <div className="mb-6">
 							<label
 								className="block text-white text-sm font-bold mb-2"
-								htmlFor="blockNo">
-								Block name
+								htmlFor="complaint_desc">
+								Complaint Description
 							</label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-								id="blockNo"
+								id="complaint_desc"
 								type="text"
-								placeholder="A"
 								onChange={(e) => {
-									setBlockNo(e.target.value);
+									setCDesc(e.target.value);
 								}}
 							/>
 						</div>
-						<div className="mb-6">
+                        <div className="mb-6">
 							<label
 								className="block text-white text-sm font-bold mb-2"
-								htmlFor="pass">
-								Password
+								htmlFor="complaint_severity">
+								Complaint Severity
 							</label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-								id="pass"
+								id="complaint_severity"
 								type="text"
-								placeholder="Ssssshhhhh"
 								onChange={(e) => {
-									setPass(e.target.value);
-								}}
-							/>
-						</div>
-						<div className="mb-6">
-							<label
-								className="block text-white text-sm font-bold mb-2"
-								htmlFor="roomNo">
-								Room
-							</label>
-							<input
-								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-								id="roomNo"
-								type="text"
-								placeholder="1101"
-								onChange={(e) => {
-									setRoomNo(e.target.value);
+									setCS(e.target.value);
 								}}
 							/>
 						</div>
@@ -139,11 +117,9 @@ function Register() {
 						©2023 Android Club. All rights reserved.
 					</p>
 				</div>
-            
 			</div>
 		</>
 	);
 };
 
-
-export default Register
+export default StudComplain;

@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 
 // import Navbar from "./Navbar";
-const LogFac = () => {
-	const navigate = useNavigate();
-	const [empId, setEmpID] = useState("");
-	const [pass, setPass] = useState("");
+const Faceappeve = () => {
+	//const navigate = useNavigate();
+	const [eventId, seteventID] = useState("");
 	function postData() {
-		fetch("http://localhost:8000/api/v1/faculty/auth/login", {
+		fetch("http://localhost:8000/api/v1/faculty/event/approve-event", {
 			method: "POST",
 			body: JSON.stringify({
-				empId: empId,
-				password: pass,
+				eventId : eventId,
 			}),
 			headers: {
 				"Content-type": "application/json; charset=UTF-8",
@@ -21,7 +19,7 @@ const LogFac = () => {
 				return response.json();
 			})
 			.then(function (data) {
-				//alert(data + " submitted successfully");
+				alert(data + " submitted successfully");
 				console.log(data);
 			})
 			.catch((error) => alert("Error:", error));
@@ -30,7 +28,7 @@ const LogFac = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
-		navigate('/faculty/auth/facultyua');
+		//navigate('/faculty/auth/facultyua');
 	};
 
 	return (
@@ -44,32 +42,16 @@ const LogFac = () => {
 						<div className="mb-4">
 							<label
 								className="block text-white text-sm font-bold mb-2"
-								htmlFor="empId">
-								Employee ID
+								htmlFor="eventId">
+								Event ID
 							</label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-								id="empId"
+								id="eventId"
 								type="text"
 								placeholder="12347"
 								onChange={(e) => {
-									setEmpID(e.target.value);
-								}}
-							/>
-						</div>
-						<div className="mb-6">
-							<label
-								className="block text-white text-sm font-bold mb-2"
-								htmlFor="pass">
-								Password
-							</label>
-							<input
-								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
-								id="pass"
-								type="password"
-								placeholder="abcdefgh"
-								onChange={(e) => {
-									setPass(e.target.value);
+									seteventID(e.target.value);
 								}}
 							/>
 						</div>
@@ -90,4 +72,4 @@ const LogFac = () => {
 	);
 };
 
-export default LogFac;
+export default Faceappeve;
