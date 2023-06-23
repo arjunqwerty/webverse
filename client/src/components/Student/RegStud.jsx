@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 // import Navbar from "./Navbar";
 const RegStud = () => {
+	const navigate = useNavigate();
+
 	const [name, setName] = useState("");
 	const [regNo, setRegNo] = useState("");
 	const [blockNo, setBlockNo] = useState("");
@@ -33,12 +37,15 @@ const RegStud = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
+		navigate('/student/auth/login')
+
 	};
 
 	return (
 		<>
 			{/* <Navbar></Navbar> */}
 			<div className="flex justify-center items-center">
+			<h1 className="main1">Register to our VIT hostel managment system</h1>
 				<div className="w-full max-w-xs">
 					<form
 						className="bg-blue-900 shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -47,8 +54,7 @@ const RegStud = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="Name">
-								Name
-							</label>
+								Name  </label>
 							<input
 								className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
 								id="Name"
@@ -63,8 +69,7 @@ const RegStud = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="regNo">
-								Register Number
-							</label>
+								Register Number </label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="regNo"
@@ -79,8 +84,7 @@ const RegStud = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="blockNo">
-								Block name
-							</label>
+								Block name </label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="blockNo"
@@ -95,8 +99,7 @@ const RegStud = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="pass">
-								Password
-							</label>
+								Password </label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="pass"
@@ -111,8 +114,7 @@ const RegStud = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="roomNo">
-								Room
-							</label>
+								Room </label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="roomNo"
@@ -123,9 +125,9 @@ const RegStud = () => {
 								}}
 							/>
 						</div>
-						<div className="flex items-center justify-between">
+						<div className="but8">
 							<button
-								className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+								className="but7"
 								type="submit">
 								Submit
 							</button>

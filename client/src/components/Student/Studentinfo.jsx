@@ -1,4 +1,5 @@
 import {useState,useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function Studentinfo({id}) {
     const token = localStorage.getItem("token")
@@ -7,6 +8,7 @@ function Studentinfo({id}) {
     const[block,setblock]=useState("");
     const[mess,setmess]=useState("");
 
+  	const navigate = useNavigate();
 
     
     const [data, setData] = useState([]);
@@ -36,15 +38,26 @@ function Studentinfo({id}) {
         )
         .catch(error => console.error(error));
             };
+      const sbme=(e)=>{
+        e.preventDefault();
 
+        navigate('/student/info/warden')
+
+      }
+      const sbme1=(e)=>{
+        e.preventDefault();
+        navigate('/student/info/event')
+      }
     console.log(data)
   return (
     <div>
     <div className='buus'>
     <button className='button3'>Post Complaint</button>
     
-    <button className='button3'>Get Warden</button>
-    <button className='button3'>Leave Request</button>
+    <button className='button3' onClick={sbme}>Get Warden</button>
+    <button className='button3' >Leave Request</button>
+    <button className='button3' onClick={sbme1}>View Events</button>
+
 
     </div>
        <div className='stinfo'>
