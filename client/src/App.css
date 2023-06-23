@@ -125,6 +125,9 @@ button:hover .fourth {
   top: 0;
   left: 0;
 }
+.l1{
+  padding: 10px;
+}
 .stinfo{
   background: rgba( 245, 166, 35, 0.25 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );

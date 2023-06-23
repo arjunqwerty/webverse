@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 // import Navbar from "./Navbar";
+import { useNavigate } from 'react-router-dom';
+
 const RegFac = () => {
 	const [name, setName] = useState("");
+	const navigate = useNavigate();
+
 	const [empID, setEmpID] = useState("");
     const [password, setPass] = useState("");
 	const [isHOD, setisHOD] = useState(Boolean);
@@ -32,12 +36,14 @@ const RegFac = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
+		navigate('/faculty/auth/login')
 	};
 
 	return (
 		<>
 			{/* <Navbar></Navbar> */}
 			<div className="flex justify-center items-center">
+			<h1 className="main1">FACULTY REGISTRATION</h1>
 				<div className="w-full max-w-xs">
 					<form
 						className="bg-blue-900 shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -46,8 +52,7 @@ const RegFac = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="Name">
-								Name
-							</label>
+								Name </label>
 							<input
 								className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
 								id="Name"
@@ -62,8 +67,7 @@ const RegFac = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="EmpID">
-								Employee ID
-							</label>
+								Employee ID </label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="EmpID"
@@ -78,8 +82,7 @@ const RegFac = () => {
 							<label
 								className="block text-white text-sm font-bold mb-2"
 								htmlFor="pass">
-								Password
-							</label>
+								Password </label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
 								id="pass"
@@ -92,9 +95,10 @@ const RegFac = () => {
 						</div>
 						<div className="mb-6">
 							<label
-								className="block text-white text-sm font-bold mb-2"
+								className="l1"
 								htmlFor="isHOD">
 								IS HOD
+								<br/>
 							</label>
 							<input
 								className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
@@ -120,8 +124,8 @@ const RegFac = () => {
                             <label for="no"> NO </label>
 
 						</div>
-						<div className="flex items-center justify-between">
-							<button
+						<div className="but8">
+							<button 
 								className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 								type="submit">
 								Submit

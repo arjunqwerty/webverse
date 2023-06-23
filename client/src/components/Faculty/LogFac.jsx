@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 // import Navbar from "./Navbar";
 const LogFac = () => {
+	const token = localStorage.getItem("token")
+
 	const navigate = useNavigate();
 	const [empId, setEmpID] = useState("");
 	const [pass, setPass] = useState("");
@@ -23,6 +25,8 @@ const LogFac = () => {
 			.then(function (data) {
 				//alert(data + " submitted successfully");
 				console.log(data);
+				window.localStorage.setItem("tokennew",data['token'])
+
 			})
 			.catch((error) => alert("Error:", error));
 	}
@@ -30,13 +34,15 @@ const LogFac = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		postData();
-		navigate('/faculty/auth/facultyua');
+		navigate('/faculty/auth/facultyallcour');
 	};
 
 	return (
 		<>
 			{/* <Navbar></Navbar> */}
 			<div className="flex justify-center items-center">
+			<h1 className="main1">FACULTY REGISTRATION</h1>
+
 				<div className="w-full max-w-xs">
 					<form
 						className="bg-blue-900 shadow-md rounded px-8 pt-6 pb-8 mb-4"

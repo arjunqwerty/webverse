@@ -1,30 +1,45 @@
-import {useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 
-function FacultyUA({id}) {
-    const token = localStorage.getItem("token")
+function FacultyUA({ id }) {
+  const token = localStorage.getItem('token');
+  const [name, setName] = useState('');
+  const [data, setData] = useState([]);
 
-    
-    const [data, setData] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    useEffect(() => {
-      fetchData();
-    }, []);
-  
-    const fetchData = async () => {
-      await fetch('http://localhost:8000/api/v1/faculty/event/get-all-unapproved', {
-        headers: {
-          'Authorization': `Bearer ${token} `,
+  const fetchData = async () => {
+    await fetch('http://localhost:8000/api/v1/faculty/course/get-all-courses', {
+      headers: {
+        Authorization: `Bearer ${tokennew}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setData(data);
         }
+        setName(data?.data?.name || '');
       })
-        .then(response => response.json())
-        .then(data => setData(data))
-        .catch(error => console.error(error));
-    };
-    console.log(data['data'])
+      .catch((error) => console.error(error));
+  };
+
   return (
-    <div >HILJ
+    <div>
+      <div className='buus'>
+        <button className='button3'>Approved</button>
+        <button className='button3'>Rejected</button>
+      </div>
+      <div className='stinfo'>
+        <h1>{name}</h1>
+        {Array.isArray(data) &&
+          data.map((item, index) => (
+            <input key={index} type='text' value={item} onChange={(e) => console.log(e.target.value)} />
+          ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default FacultyUA
+export default FacultyUA;
